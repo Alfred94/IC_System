@@ -93,7 +93,7 @@ if(!$_SESSION['userId']) {
           <div class="alert alert-info" role="alert">
             <h3>INGENIERÍA ECONÓMICA 2017</h3><br/><br/>
             <span class="label label-primary">Estudiante: </span><br/><br/><br/>
-            <span class="label label-primary">Estudiante: </span><br/><br/><br/>
+            <span class="label label-primary">Estudiante: Ramón Alfredo Serpas García</span><br/><br/><br/>
             <span class="label label-primary">Estudiante: </span><br/><br/><br/>
           </div>
         

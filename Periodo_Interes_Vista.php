@@ -88,7 +88,7 @@ if(!$_SESSION['userId']) {
       <!-- Example row of columns -->
 
         <div class="panel panel-primary">
-  <div class="panel-heading">PARAMETROS PARA CALCULO DE MONTO</div>
+  <div class="panel-heading">PARAMETROS PARA CALCULO DE PERIODO</div>
   <div class="panel-body">
 
       <div class="row">
