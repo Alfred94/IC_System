@@ -1,3 +1,12 @@
+<?php 
+
+session_start();
+
+if(!$_SESSION['userId']) {
+  header('location: index.php');  
+} 
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -7,7 +16,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favico.ico">
 
     <title>Interes Compuesto</title>
 
@@ -42,14 +51,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-          <li><a href="index.html">INICIO</a></li>
-            <li><a href="Interes.html">Calcular Interes</a></li>
-            <li class="active"><a href="Monto.html">Calcular Monto</a></li>
-            <li class="dropdown">
+          <li><a href="dashboard.php">INICIO</a></li>
+            <li><a href="InteresVista.php">Calcular Interes</a></li>
+            <li class="active"><a href="MontoVista.php">Calcular Monto</a></li>
+           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tasa de Interes <span class="caret"></span></a>
               <ul class="dropdown-menu">
-               <li><a href="T_interes_Monto.html">A partir del Monto</a></li>
-                <li><a href="T_interes_Interes.html">A partir del Interes</a></li>
+                <li><a href="T_interes_Monto_Vista.php">A partir del Monto</a></li>
+                <li><a href="T_interes_Interes_Vista.php">A partir del Interes</a></li>
               </ul>
             </li>
            <!-- <li class="dropdown">
@@ -101,6 +110,16 @@
               </ul>
             </li>-->
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" id="navSetting">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i> <span class="caret"></span></a>
+          <ul class="dropdown-menu">            
+            <!--<li id="topNavSetting"><a href="configuraciones.php"> <i class="glyphicon glyphicon-wrench"></i> Configuración</a></li>-->            
+            <li id="topNavLogout"><a href="logout.php"> <i class="glyphicon glyphicon-log-out"></i> Salir</a></li>            
+          </ul>
+        </li>        
+               
+      </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
