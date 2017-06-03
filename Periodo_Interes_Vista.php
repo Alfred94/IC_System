@@ -6,6 +6,7 @@ if(!$_SESSION['userId']) {
   header('location: index.php');  
 } 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -57,14 +58,14 @@ if(!$_SESSION['userId']) {
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tasa de Interes <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="T_interes_Monto_Vista.php">A partir del Monto</a></li>
-                <li class="active"><a href="T_interes_Interes_Vista.php">A partir del Interes</a></li>
+                <li><a href="T_interes_Interes_Vista.php">A partir del Interes</a></li>
               </ul>
             </li>
-          <li class="dropdown">
+           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Periodo <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="Periodo_Monto_Vista.php">A partir del Monto</a></li>
-                <li><a href="Periodo_Interes_Vista.php">A partir del Interes</a></li>
+                <li ><a href="Periodo_Monto_Vista.php">A partir del Monto</a></li>
+                <li class="active"><a href="Periodo_Interes_Vista.php">A partir del Interes</a></li>
               </ul>
             </li>
           </ul>
@@ -87,7 +88,7 @@ if(!$_SESSION['userId']) {
       <!-- Example row of columns -->
 
         <div class="panel panel-primary">
-  <div class="panel-heading">PARAMETROS PARA CALCULO DE TASA DE INTERES</div>
+  <div class="panel-heading">PARAMETROS PARA CALCULO DE MONTO</div>
   <div class="panel-body">
 
       <div class="row">
@@ -105,38 +106,49 @@ if(!$_SESSION['userId']) {
 						</div>
 					</div>
           <hr/>
-					 <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 col-xs-4 control-label">Interes</label>
-              <div class="col-sm-4 col-xs-8">
-                <div class="input-group">
-                  <div class="input-group-addon">$</div>
-                  <input type="text" class="form-control" id="Interes">
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 col-xs-4 control-label"> Tasa de Interes</label>
+						<div class="col-sm-4 col-xs-8">
+            <div class="input-group">
+            <div class="input-group-addon">%</div>
+						      <input type="text" class="form-control" id="T_interes">
+                  </div>
+						</div>
+              <div class="col-sm-3" >
+                  <select class="form-control" id="opcionInteres" style="font-size:9pt">
+                <option value="01">Mensual</option>
+                  <option value="02">bimestral</option>
+                  <option value="03">Trimestral</option>
+                  <option value="04">Semestral</option>
+                   <option value="05">Anual</option>
+                </select>
               </div>
-            </div>
+            <div class="col-sm-3">
+                <label>
+                 <input type="checkbox" id="Capitalizable" onclick="select_cap()" >Capitalizable
+             </label>
+              </div>
+              
+					</div>
+          <div class="form-group" id="div_oculta">
+             <div class="col-sm-3 col-sm-offset-9">
+                <select class="form-control" id="opcioncapitalizable" style="font-size:9pt">
+                <option value="01">Mensual</option>
+                  <option value="02">bimestral</option>
+                  <option value="03">Trimestral</option>
+                  <option value="04">Semestral</option>
+                </select>
+              </div>
           </div>
           <hr/>
 					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-2 col-xs-4 control-label">Periodo</label>
+						<label for="inputPassword3" class="col-sm-2 col-xs-4 control-label">Interes</label>
 						<div class="col-sm-4 col-xs-8">
 						      <div class="input-group">
                     <div class="input-group-addon"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div>
-                  <input type="text" class="form-control" id="Periodo" >
+                  <input type="text" class="form-control" id="Interes" >
                   </div>
 						</div>
-            <div class="col-sm-3">
-                <select class="form-control" id="opcionperiodo">
-                <option value="00">Seleccione...</option>
-                <option value="01">Dia</option>
-                  <option value="02">Mes</option>
-                  <option value="03">Año</option>
-                </select>
-              </div>
-               <div class="col-sm-3">
-                <select class="form-control" id="opcionperiododia">
-                <option value="01">Real</option>
-                  <option value="02">Aproximado</option>
-                </select>
-              </div>
 					</div>
            <hr/>
 					<div class="form-group">
@@ -162,7 +174,7 @@ if(!$_SESSION['userId']) {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="dist/js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/T_interes_Interes.js"></script>
+    <script type="text/javascript" src="js/periodo_Interes.js"></script>
     <script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script type="text/javascript" src="assets/js/ie10-viewport-bug-workaround.js"></script>
